@@ -1,5 +1,5 @@
-from Types import DataType
-from DataReader import DataReader
+from src.Types import DataType
+from src.DataReader import DataReader
 
 
 class TextDataReader(DataReader):
