@@ -15,10 +15,15 @@ class YamlDataReader(DataReader):
     def read(self, path: str) -> DataType:
         with open(path, encoding='utf-8') as file:
             read_data = yaml.load(file, Loader=yaml.FullLoader)
-
-            for i in range(0, len(read_data)):
-                for key, value in read_data[i].items():
-                    if value < 90:
-                        continue
+            for key, value in read_data.items():
+                if bool(self.students):
+                    return self.students
+                flag = True
+                for points in value.values():
+                    if points != 90:
+                        flag = False
+                        break
+                if flag:
+                    self.students[key] = list(zip(value.keys(), value.values()))
 
         return self.students
