@@ -2,6 +2,7 @@ from src.Types import DataType
 from src.DataReader import DataReader
 import yaml
 
+
 # Определить и вывести на экран студента, имеющего 90
 # баллов по всем дисциплинам. Если таких студентов
 # несколько, нужно вывести любого из них. Если таких
@@ -24,6 +25,7 @@ class YamlDataReader(DataReader):
                         flag = False
                         break
                 if flag:
-                    self.students[key] = list(zip(value.keys(), value.values()))
+                    self.students[key] = list(
+                        zip(value.keys(), value.values()))
 
         return self.students
