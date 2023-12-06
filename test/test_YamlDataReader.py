@@ -3,7 +3,7 @@ from src.Types import DataType
 from src.YamlDataReader import YamlDataReader
 
 
-class TestTextDataReader:
+class YamlTextDataReader:
     @pytest.fixture()
     def file_and_data_content(self) -> tuple[str, DataType]:
         text = "Иванов Константин Дмитриевич:\n" + \
