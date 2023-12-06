@@ -17,9 +17,12 @@ def main():
     path = get_path_from_arguments(sys.argv[1:])
     reader = DataController.getDataReader(path)
     students = reader.read(path)
-    print("Students: ", students)
-    rating = CalcRating(students).calc()
-    print("Rating: ", rating)
+    if not students:
+        print("Таких студентов нет")
+    else:
+        print("Students: ", students)
+        rating = CalcRating(students).calc()
+        print("Rating: ", rating)
 
 
 if __name__ == "__main__":
